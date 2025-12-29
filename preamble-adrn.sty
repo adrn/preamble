@@ -1,0 +1,90 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{preamble-adrn}[2025-12-29 my latex paper stuff]
+
+% Packages
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{siunitx}
+
+% Workaround for siunitx + AASTeX
+% https://tex.stackexchange.com/questions/192610/use-emulateapj-aastex-with-siunitx
+\RequirePackage{savesym}
+\savesymbol{tablenum}
+\restoresymbol{SIX}{tablenum}
+
+% =====================================================================================
+
+% Custom commands
+\newcommand{\project}[1]{\textsl{#1}}
+\newcommand{\package}[1]{\texttt{#1}}
+\newcommand{\acronym}[1]{{\small{#1}}}
+
+% Software
+\newcommand{\agama}{\package{Agama}}
+\newcommand{\gala}{\package{gala}}
+\newcommand{\github}{\textsl{GitHub}}
+\newcommand{\jax}{\package{JAX}}
+\newcommand{\numpy}{\package{NumPy}}
+\newcommand{\python}{\textsl{Python}}
+\newcommand{\scipy}{\package{SciPy}}
+
+% Datasets, surveys, missions
+\newcommand{\apogee}{\acronym{APOGEE}}
+\newcommand{\dr}[1]{\acronym{DR}#1}
+\newcommand{\gaia}{\textsl{Gaia}}
+\newcommand{\sdss}{\acronym{SDSS}}
+\newcommand{\sdssiv}{\acronym{SDSS-IV}}
+\newcommand{\sdssv}{\acronym{SDSS-V}}
+
+% Stats / probability
+\newcommand{\given}{\,|\,}
+\newcommand{\norm}{\mathcal{N}}
+\newcommand{\pdf}{\textsl{pdf}}
+
+% Other maths
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\deriv}[2]{\frac{\mathrm{d}{#1}}{\mathrm{d}{#2}}}
+\newcommand{\dderiv}[2]{\frac{\mathrm{d^2}{#1}}{\mathrm{d}{#2}^2}}
+\newcommand{\Deriv}[2]{\frac{\mathrm{D}{#1}}{\mathrm{D}{#2}}}
+\newcommand{\pderiv}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ppderiv}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\transp}[1]{{#1}^{\mathsf{T}}}
+\newcommand{\inver}[1]{{#1}^{-1}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\mean}[1]{\left< #1 \right>}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+
+% Non-scalar variables
+\renewcommand{\vec}[1]{\ensuremath{\bs{#1}}}
+\newcommand{\mat}[1]{\ensuremath{\mathbf{#1}}}
+
+% Units:
+\DeclareSIUnit\year{yr}
+\DeclareSIUnit\parsec{pc}
+\DeclareSIUnit\Msun{M_\odot}
+\DeclareSIUnit\Rsun{R_\odot}
+\newcommand{\mas}{\unit{\milli\arcsecond}}
+\newcommand{\muas}{\unit{\micro\arcsecond}}
+\newcommand{\kms}{\unit{\km\per\s}}
+\newcommand{\kpc}{\unit{\kilo\parsec}}
+\newcommand{\usurfdens}{\unit{\Msun.\parsec^{-2}}}
+\newcommand{\uvoldens}{\unit{\Msun.\parsec^{-3}}}
+
+% Astronomy
+\newcommand{\DM}{{\rm DM}}
+\newcommand{\abun}[2]{\ensuremath{{[\mathrm{#1}/\mathrm{#2}]}}}
+\newcommand{\feh}{\abun{Fe}{H}}
+\newcommand{\afe}{\abun{\alpha}{Fe}}
+\newcommand{\mgfe}{\abun{Mg}{Fe}}
+\newcommand{\logg}{\ensuremath{\log g}}
+\newcommand{\Teff}{\ensuremath{T_{\textrm{eff}}}}
+\newcommand{\vsini}{\ensuremath{v\,\sin i}}
+
+% Dynamics
+\newcommand{\df}{\acronym{DF}}
+\newcommand{\zmax}{\ensuremath{z_{\textrm{max}}}}
+
+% TO DO
+\newcommand{\todo}[1]{{\color{red} TODO: #1}}
+\newcommand{\placeholder}[1]{{\color{purple} #1}}
+
